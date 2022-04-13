@@ -5,7 +5,7 @@ In diesem Katacoda werden Möglichkeiten zur Verwendung von JSON in relationalen
 JSON steht für JavaScript Object Notation und besteht ähnlich wie XML und YAML aus "Key-Value"-Paaren.
 
 Dies wäre ein Beispiel für ein JSON-Objekt: 
-```
+<pre>
 {
     "name": "John",
     "age": 30,
@@ -14,4 +14,4 @@ Dies wäre ein Beispiel für ein JSON-Objekt:
         "doors": 4
     }
 }
-```
+</pre>
