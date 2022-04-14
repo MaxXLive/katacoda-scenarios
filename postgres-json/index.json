@@ -37,6 +37,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "postgres:latest"
+    "imageid": "ubuntu:2004"
   }
 }
