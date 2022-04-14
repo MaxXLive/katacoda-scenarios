@@ -1,0 +1,1 @@
+# Möglichkeit 2: Native Integration in PostgresSQL mit JSONB-Datentyp
