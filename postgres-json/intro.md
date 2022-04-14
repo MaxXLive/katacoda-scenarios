@@ -1,6 +1,6 @@
 # JSON in relationalen Datenbanken
 
-In diesem Katacoda werden Möglichkeiten zur Verwendung von JSON in relationalen Datenbanken gezeigt.
+In diesem Scenario werden Möglichkeiten zur Verwendung von JSON in relationalen Datenbanken gezeigt.
 
 JSON steht für JavaScript Object Notation und besteht ähnlich wie XML und YAML aus "Key-Value"-Paaren.
 
@@ -15,3 +15,12 @@ Dies wäre ein Beispiel für ein JSON-Objekt:
     }
 }
 </pre>
+
+Es gibt viele Gründe für das Verwenden von JSON in relationalen Datenbanken.
+
+1. 
+
+In diesem Scenario wird Postgres als relationale Datenbank verwendet.
+
+
+
