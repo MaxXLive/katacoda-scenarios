@@ -1,4 +1,4 @@
-# Installation & Preparation
+# Installation & Vorbereitung
 
 Zunächst wird PostgreSQL auf der Ubuntu Umgebung installiert.
 

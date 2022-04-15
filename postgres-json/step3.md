@@ -26,24 +26,28 @@ INSERT INTO person VALUES (4, '{"name": "Maggie Simpson", "birthdate": "1989-01-
 `{{execute}}
 
 Der Unterschied zum Speichern als "TEXT" ist, dass nun Objekte innerhalb des JSON aufgerufen werden können.
-Dafür kann der ``->``-Operator, zum Abrufen per Schlüssel oder der `->>`-Operator, zum Abrufen als Text verwendet werden. 
-Beispielsweise wenn nur die Namen der Personen aus dem JSON abgerufen werden sollen:
+Wie in der "Data Warehouse"-Vorlesung bereits gelernt, kann dafür der ``->``-Operator, zum Abrufen per Schlüssel oder der `->>`-Operator, zum Abrufen als Text verwendet werden. 
+Beispielsweise, wenn nur die Namen der Personen aus dem JSON abgerufen werden sollen:
 
-`SELECT data ->> 'name' AS names FROM person;
+`SELECT data ->> 'name' AS name FROM person;
 `{{execute}}
 
 Verschachtelte Abfragen können mit der Aneinanderreihung der Operatoren verwendet werden.
 
 Ein weiterer Vorteil ist, dass auch nach Werten sortiert oder gefiltert werden kann.
-Beispielsweise sortieren nach dem Namen:
+Beispielsweise sortieren nach dem Geburtsdatum, absteigend:
 
-`SELECT * from person ORDER BY data ->> 'name';
+`SELECT id, data ->> 'name' AS name, data ->> 'birthdate' AS birthdate, data ->> 'sex' AS sex FROM person ORDER BY data ->> 'birthdate' DESC;
 `{{execute}}
 
-Oder filtern anhand des Geschlechts, in diesem Fall alle Frauen:
+Oder filtern anhand des Geschlechts, in diesem Fall nur alle Frauen:
 
-`SELECT * from person WHERE data ->> 'name' = 'f';
+`SELECT id, data ->> 'name' AS name, data ->> 'birthdate' AS birthdate, data ->> 'sex' AS sex FROM person WHERE data ->> 'sex' = 'f';
 `{{execute}}
+
+Außerdem gibt es viele weitere Funktionen, die in der PostgreSQL Dokumentation (https://www.postgresql.org/docs/9.5/functions-json.html) nachgelesen werden können.
+
+Wie man erkennen kann, bietet die Verwendung des "JSON"-Datentyps in Postgres viele Vorteile im Gegensatz zum Abspeichern als "TEXT".
 
 
 

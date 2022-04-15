@@ -6,23 +6,23 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Schritt 1",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Schritt 2",
         "text": "step2.md"
       },
       {
-        "title": "Step 3",
+        "title": "Schritt 3",
         "text": "step3.md"
       },
       {
-        "title": "Step 4",
+        "title": "Schritt 4",
         "text": "step4.md"
       },
       {
-        "title": "Step 5",
+        "title": "Schritt 5",
         "text": "step5.md"
       }
     ],
