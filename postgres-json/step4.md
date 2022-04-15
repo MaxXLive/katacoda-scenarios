@@ -75,6 +75,7 @@ Und zählt wieder alle Frauen:
 
 `SELECT count(*) as women FROM person WHERE data ->> 'sex' = 'f';`{{execute}}
 
-EIn meinem Fall ergibt sich eine Ausführungszeit von ``Time: 15.118 ms``, die auch mit mehrfachem Ausführen nicht besser wird.
+Fällt auf, dass es deutlich länger dauert.
+In meinem Fall ergibt sich eine Ausführungszeit von ``Time: 15.118 ms``, die auch mit mehrfachem Ausführen nicht besser wird.
 Daran sieht man gut, dass der "JSON"-Datentyp keine Indizierung bietet, wodurch beim Filtern jeder Eintrag zunächst aus ASCII/UFT-8 dekodiert werden muss.
 Dies erhöht die Ausführungszeit, im Vergleich zur Indizierten "JSONB" Tabelle um den Faktor 5.
