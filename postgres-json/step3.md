@@ -4,12 +4,46 @@ Seit Version 9.2 wird JSON nativ von PostgreSQL unterstützt.
 Das bedeutet, dass JSON ganz einfach als Wert in der Datenbank gespeichert werden kann und mithilfe von SQL gelesen werden kann.
 Dabei beschränkt sich das Lesen nicht auf das Wurzel-Objekt, sondern auch auf alle Unter-Objekte.
 
-Zunächst wird eine Tabelle für Personen erstellt.
-Hierfür wird der Datentyp "Binary JSON bzw. JSONB" verwendet.
-Dieser entfernt unnötige Leerzeichen und bietet
+Zunächst wird die Tabelle aus dem vorherigen Schritt entfernt:
 
-`CREATE TABLE cards (
-id integer NOT NULL,
-data jsonb
-);
+`DROP TABLE person;`{{execute}}
+
+Nun wird eine neue Tabelle für Personen erstellt.
+Hierfür wird der Datentyp "JSON" verwendet.
+
+`CREATE TABLE person (
+id integer NOT NULL PRIMARY KEY,
+data JSON
+);`{{execute}}
+
+Nun wird die Tabelle wieder mit den vorherigen Beispielen gefüllt:
+
+`INSERT INTO person VALUES (0, '{"name": "Homer Simpson", "birthdate": "1951-05-12", "sex": "m"}');
+INSERT INTO person VALUES (1, '{"name": "Marge Simpson", "birthdate": "1953-03-19", "sex": "f"}');
+INSERT INTO person VALUES (2, '{"name": "Bart Simpson", "birthdate": "1980-04-01", "sex": "m"}');
+INSERT INTO person VALUES (3, '{"name": "Lisa Simpson", "birthdate": "1982-05-09", "sex": "f"}');
+INSERT INTO person VALUES (4, '{"name": "Maggie Simpson", "birthdate": "1989-01-12", "sex": "f"}');
 `{{execute}}
+
+Der Unterschied zum Speichern als "TEXT" ist, dass nun Objekte innerhalb des JSON aufgerufen werden können.
+Dafür kann der ``->``-Operator, zum Abrufen per Schlüssel oder der `->>`-Operator, zum Abrufen als Text verwendet werden. 
+Beispielsweise wenn nur die Namen der Personen aus dem JSON abgerufen werden sollen:
+
+`SELECT data ->> 'name' AS names FROM person;
+`{{execute}}
+
+Verschachtelte Abfragen können mit der Aneinanderreihung der Operatoren verwendet werden.
+
+Ein weiterer Vorteil ist, dass auch nach Werten sortiert oder gefiltert werden kann.
+Beispielsweise sortieren nach dem Namen:
+
+`SELECT * from person ORDER BY data ->> 'name';
+`{{execute}}
+
+Oder filtern anhand des Geschlechts, in diesem Fall alle Frauen:
+
+`SELECT * from person WHERE data ->> 'name' = 'f';
+`{{execute}}
+
+
+

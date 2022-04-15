@@ -9,3 +9,5 @@
 - https://bibliotekanauki.pl/articles/305822
 - https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-json/
 - https://www.cloudbees.com/blog/unleash-the-power-of-storing-json-in-postgres
+- https://www.postgresql.org/docs/9.5/functions-json.html
+- https://medium.com/geekculture/postgres-jsonb-usage-and-performance-analysis-cdbd1242a018#:~:text=The%20data%20type%20JSON%20and,string%2C%20but%20as%20binary%20code.
