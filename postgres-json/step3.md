@@ -45,7 +45,7 @@ Oder filtern anhand des Geschlechts, in diesem Fall nur alle Frauen:
 `SELECT id, data ->> 'name' AS name, data ->> 'birthdate' AS birthdate, data ->> 'sex' AS sex FROM person WHERE data ->> 'sex' = 'f';
 `{{execute}}
 
-Außerdem gibt es viele weitere Funktionen, die in der PostgreSQL Dokumentation (https://www.postgresql.org/docs/9.5/functions-json.html) nachgelesen werden können.
+Außerdem gibt es viele weitere Funktionen, die in der PostgreSQL Dokumentation (https://www.postgresql.org/docs/9.5/functions-json.html) nachgelesen werden können, beispielsweise auch das Ändern von JSON-Werten.
 
 Wie man erkennen kann, bietet die Verwendung des "JSON"-Datentyps in Postgres viele Vorteile im Gegensatz zum Abspeichern als "TEXT".
 
